@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | 4K Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🚀 Brand<span>Flow</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Signup button will be replaced by user name after signup -->
+                <li id="authNavItem"><a href="signup.html" class="btn-small">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Create <span class="gradient-text">Account</span></h1>
+                <p>Join our community today</p>
+            </div>
+        </section>
+
+        <section class="signup-section">
+            <div class="container">
+                <div class="signup-container">
+                    <div class="signup-box">
+                        <div class="signup-header">
+                            <h2>Register Now</h2>
+                            <p>It's free and takes less than 2 minutes</p>
+                        </div>
+                        <form id="signupForm">
+                            <div class="form-row">
+                                <input type="text" id="firstName" placeholder="First Name" required>
+                                <input type="text" id="lastName" placeholder="Last Name" required>
+                            </div>
+                            <input type="email" id="signupEmail" placeholder="Email Address" required>
+                            <input type="tel" id="phone" placeholder="Phone Number">
+                            <div class="form-row">
+                                <input type="password" id="password" placeholder="Password" required>
+                                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                            </div>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termsCheckbox" required> I agree to the <a href="#">Terms & Conditions</a>
+                            </label>
+                            <button type="submit" class="btn btn-primary">Sign Up →</button>
+                        </form>
+                        <div class="signup-footer">
+                            <p>Already have an account? <a href="#" id="showLoginBtn">Login here</a></p>
+                        </div>
+                    </div>
+
+                    <div class="signup-benefits">
+                        <h3>Why join us?</h3>
+                        <ul>
+                            <li>✓ Access to premium 4K templates</li>
+                            <li>✓ 24/7 customer support</li>
+                            <li>✓ Regular updates & new features</li>
+                            <li>✓ Exclusive member discounts</li>
+                            <li>✓ Community access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Modal (Popup) -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit" class="btn btn-primary">Login →</button>
+                </form>
+                <p style="text-align: center; margin-top: 20px;">Don't have an account? <a href="#" id="switchToSignup">Sign Up</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BrandFlow</h4>
+                    <p>Creating stunning 4K websites since 2024.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 hello@brandflow.com</p>
+                    <p>📞 +92 328 4347698</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 BrandFlow. All rights reserved. | Built in India for ₹6,000</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 28px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #64748b;
+        }
+        .close:hover {
+            color: #2563eb;
+        }
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .user-name {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            z-index: 1;
+            margin-top: 8px;
+        }
+        .dropdown-content a {
+            color: #1e293b !important;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background: #f1f5f9;
+            border-radius: 16px;
+        }
+        .user-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script>
+        // Get DOM elements
+        const signupForm = document.getElementById('signupForm');
+        const loginModal = document.getElementById('loginModal');
+        const closeBtn = document.querySelector('.close');
+        const showLoginBtn = document.getElementById('showLoginBtn');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const loginForm = document.getElementById('loginForm');
+        const authNavItem = document.getElementById('authNavItem');
+
+        // Check if user is already logged in
+        function checkLoginStatus() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                const user = JSON.parse(loggedInUser);
+                updateNavForLoggedInUser(user.firstName, user.lastName);
+            }
+        }
+
+        // Update navigation bar to show user name instead of signup button
+        function updateNavForLoggedInUser(firstName, lastName) {
+            const fullName = `${firstName} ${lastName}`;
+            authNavItem.innerHTML = `
+                <div class="user-dropdown">
+                    <div class="user-name">
+                        👤 ${fullName}
+                        ▼
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="profile.html">📋 My Profile</a>
+                        <a href="#" id="logoutLink">🚪 Logout</a>
+                    </div>
+                </div>
+            `;
+            
+            // Add logout functionality
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('loggedInUser');
+                    showToast('Logged out successfully!');
+                    setTimeout(() => {
+                        window.location.href = 'signup.html';
+                    }, 1000);
+                });
+            }
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Save user to localStorage
+        function saveUser(firstName, lastName, email, phone) {
+            const user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                registeredAt: new Date().toISOString()
+            };
+            // Save to users list
+            let users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+            // Set as logged in user
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            return user;
+        }
+
+        // Check if email already exists
+        function emailExists(email) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            return users.some(user => user.email === email);
+        }
+
+        // Validate login
+        function validateLogin(email, password) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            // For demo, any password works if email exists (in real app, check hashed password)
+            const user = users.find(u => u.email === email);
+            if (user) {
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                return true;
+            }
+            return false;
+        }
+
+        // Signup form submission
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const termsCheckbox = document.getElementById('termsCheckbox');
+            
+            // Validation
+            if (!firstName || !lastName || !email || !password) {
+                showToast('Please fill all required fields!');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showToast('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 4) {
+                showToast('Password must be at least 4 characters!');
+                return;
+            }
+            
+            if (!termsCheckbox.checked) {
+                showToast('Please agree to the Terms & Conditions!');
+                return;
+            }
+            
+            if (emailExists(email)) {
+                showToast('Email already registered! Please login.');
+                return;
+            }
+            
+            // Save user and login
+            const user = saveUser(firstName, lastName, email, phone);
+            showToast(`Welcome ${firstName}! Account created successfully 🎉`);
+            
+            // Update navigation
+            updateNavForLoggedInUser(firstName, lastName);
+            
+            // Redirect to home page after 1.5 seconds
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+        
+        // Show login modal
+        showLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'block';
+        });
+        
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+        
+        // Switch to signup from modal
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                showToast('Please enter email and password!');
+                return;
+            }
+            
+            if (validateLogin(email, password)) {
+                const user = JSON.parse(localStorage.getItem('loggedInUser'));
+                showToast(`Welcome back ${user.firstName}!`);
+                loginModal.style.display = 'none';
+                updateNavForLoggedInUser(user.firstName, user.lastName);
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            } else {
+                showToast('Email not found! Please sign up first.');
+            }
+        });
+        
+        // Check login status on page load
+        checkLoginStatus();
+        
+        // If already logged in and on signup page, redirect to home
+        if (localStorage.getItem('loggedInUser') && window.location.pathname.includes('signup.html')) {
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

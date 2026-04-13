@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | 4K Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🚀 Brand<span>Flow</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="authNavItem"><a href="signup.html" class="btn-small">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About <span class="gradient-text">Us</span></h1>
+                <p>Learn more about our story and mission</p>
+            </div>
+        </section>
+
+        <section class="about-story">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Our Journey</h2>
+                        <p>Founded in 2024, BrandFlow started with a simple mission: deliver premium quality 4K-ready websites that don't break the bank. For just ₹6,000, we've built this complete 5-page website for your friend.</p>
+                        <p>We believe that every business deserves a stunning online presence. That's why we combine modern design, cutting-edge technology, and affordable pricing to help you succeed.</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label">Projects Done</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            🖼️ Team Photo Placeholder
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <h2>Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">👨‍💻</div>
+                        <h3>Rahul Sharma</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">🎨</div>
+                        <h3>Priya Patel</h3>
+                        <p>UI/UX Designer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">📊</div>
+                        <h3>Akash Verma</h3>
+                        <p>Project Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BrandFlow</h4>
+                    <p>Creating stunning 4K websites since 2024.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 hello@brandflow.com</p>
+                    <p>📞 +92 328 4347698</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script>
+        const authNavItem = document.getElementById('authNavItem');
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Update navigation bar to show user name instead of signup button
+        function updateNavForLoggedInUser(firstName, lastName) {
+            const fullName = `${firstName} ${lastName}`;
+            authNavItem.innerHTML = `
+                <div class="user-dropdown">
+                    <div class="user-name">
+                        👤 ${fullName}
+                        ▼
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="profile.html">📋 My Profile</a>
+                        <a href="#" id="logoutLink">🚪 Logout</a>
+                    </div>
+                </div>
+            `;
+            
+            // Add logout functionality
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('loggedInUser');
+                    showToast('Logged out successfully!');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                });
+            }
+        }
+
+        // Check if user is already logged in
+        function checkLoginStatus() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                const user = JSON.parse(loggedInUser);
+                updateNavForLoggedInUser(user.firstName, user.lastName);
+            }
+        }
+
+        // Run on page load
+        checkLoginStatus();
+    </script>
+</body>
+</html>

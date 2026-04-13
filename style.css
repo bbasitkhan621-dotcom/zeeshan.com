@@ -1,0 +1,898 @@
+/* ============================================
+   GLOBAL STYLES - Base for all devices
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   TYPOGRAPHY - Responsive Font Sizes
+   ============================================ */
+
+html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* ============================================
+   HEADER & NAVIGATION - Responsive
+   ============================================ */
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    font-weight: 800;
+}
+
+.logo span {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    transition: 0.2s;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    white-space: nowrap;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #2563eb;
+}
+
+.btn-small {
+    background: #2563eb;
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+.btn-small:hover {
+    background: #1d4ed8;
+    transform: scale(1.02);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer;
+    border: none;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    text-align: center;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    padding: clamp(40px, 10vw, 100px) 0;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    width: 100%;
+}
+
+.hero h1 {
+    margin-bottom: 15px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 25px;
+    padding: 0 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   FEATURES & CARDS - Responsive Grid
+   ============================================ */
+
+.features,
+.team,
+.testimonials {
+    padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.features-grid,
+.team-grid,
+.testimonial-grid,
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.feature-card,
+.team-card,
+.testimonial {
+    background: white;
+    padding: clamp(20px, 4vw, 32px);
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.25s;
+}
+
+.feature-card:hover,
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    padding: clamp(40px, 8vw, 80px) 0;
+    text-align: center;
+}
+
+.cta h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.cta .btn-primary {
+    background: white;
+    color: #2563eb;
+    margin-top: 20px;
+}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+
+.page-header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    padding: clamp(40px, 8vw, 60px) 0;
+    text-align: center;
+}
+
+.page-header p {
+    color: #cbd5e1;
+    margin-top: 10px;
+}
+
+/* ============================================
+   ABOUT PAGE - Responsive Grid
+   ============================================ */
+
+.about-grid,
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: clamp(30px, 6vw, 60px) 0;
+}
+
+.about-content {
+    padding: 0 10px;
+}
+
+.stats {
+    display: flex;
+    gap: 25px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.stat-number {
+    display: block;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.about-image,
+.image-placeholder,
+.map-placeholder,
+.video-placeholder {
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    border-radius: 28px;
+    min-height: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #64748b;
+    padding: 40px;
+    text-align: center;
+}
+
+/* ============================================
+   GALLERY PAGE - Responsive
+   ============================================ */
+
+.gallery-section,
+.video-section {
+    padding: clamp(30px, 6vw, 60px) 0;
+}
+
+.image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+}
+
+.gallery-placeholder {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    border-radius: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: white;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.gallery-placeholder:hover {
+    transform: scale(1.02);
+}
+
+.video-container {
+    margin: 30px 0;
+}
+
+.video-placeholder {
+    min-height: 300px;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+
+/* ============================================
+   CONTACT PAGE - Responsive
+   ============================================ */
+
+.contact-info,
+.contact-form-box,
+.signup-box {
+    background: white;
+    padding: clamp(25px, 5vw, 40px);
+    border-radius: 28px;
+    height: 100%;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.info-icon {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ============================================
+   SIGNUP PAGE - Responsive
+   ============================================ */
+
+.signup-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: clamp(30px, 6vw, 60px) 0;
+}
+
+.signup-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.checkbox-label input {
+    width: auto;
+    margin: 0;
+}
+
+.signup-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-benefits {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    padding: clamp(30px, 5vw, 48px);
+    border-radius: 28px;
+    color: white;
+    height: 100%;
+}
+
+.signup-benefits ul {
+    list-style: none;
+}
+
+.signup-benefits li {
+    margin: 15px 0;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+/* ============================================
+   PROFILE PAGE - Responsive
+   ============================================ */
+
+.profile-container {
+    padding: clamp(20px, 4vw, 40px);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.profile-sidebar {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    padding: clamp(30px, 5vw, 40px);
+    text-align: center;
+    color: white;
+}
+
+.profile-content {
+    padding: clamp(25px, 5vw, 40px);
+}
+
+.profile-avatar {
+    width: clamp(100px, 25vw, 150px);
+    height: clamp(100px, 25vw, 150px);
+    margin: 0 auto 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    margin-bottom: 15px;
+    align-items: start;
+    gap: 10px;
+}
+
+@media (max-width: 480px) {
+    .info-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+}
+
+/* ============================================
+   FOOTER - Responsive
+   ============================================ */
+
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-section a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin: 8px 0;
+    font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+    color: #2563eb;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.8rem;
+}
+
+/* ============================================
+   MODAL - Responsive
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: clamp(20px, 5vw, 40px);
+    border-radius: 28px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+}
+
+/* ============================================
+   USER DROPDOWN - Responsive
+   ============================================ */
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-name {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    z-index: 1;
+    margin-top: 8px;
+}
+
+.dropdown-content a {
+    color: #1e293b !important;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    z-index: 1000;
+    font-size: 0.9rem;
+    max-width: 90%;
+    text-align: center;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .features-grid,
+    .team-grid,
+    .image-gallery {
+        gap: 20px;
+    }
+}
+
+/* Small Tablet (600px - 768px) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        gap: 12px;
+    }
+    
+    .nav-links li a {
+        white-space: normal;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 80%;
+        max-width: 250px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .stats {
+        justify-content: center;
+    }
+    
+    .footer-content {
+        text-align: center;
+    }
+}
+
+/* Mobile (320px - 600px) */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .nav-links {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links li a {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+    }
+    
+    .btn-small {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+    
+    .feature-card,
+    .team-card,
+    .testimonial {
+        padding: 20px;
+    }
+    
+    .contact-info,
+    .contact-form-box,
+    .signup-box {
+        padding: 20px;
+    }
+    
+    .signup-benefits {
+        padding: 25px;
+    }
+    
+    .profile-sidebar {
+        padding: 25px;
+    }
+    
+    .profile-content {
+        padding: 20px;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        padding: 25px;
+    }
+    
+    .dropdown-content {
+        position: fixed;
+        top: auto;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .features-grid,
+    .team-grid,
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-grid,
+    .contact-grid,
+    .signup-container,
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat {
+        width: 100%;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .user-name {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* 4K Displays (2560px+) */
+@media (min-width: 2560px) {
+    .container {
+        max-width: 1800px;
+    }
+    
+    body {
+        font-size: 1.1rem;
+    }
+    
+    .feature-card,
+    .team-card {
+        padding: 45px;
+    }
+    
+    .btn {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero {
+        padding: 30px 0;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+    }
+    
+    .features,
+    .team {
+        padding: 30px 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    header,
+    footer,
+    .cta,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}

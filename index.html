@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | 4K Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🚀 Brand<span>Flow</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="authNavItem"><a href="signup.html" class="btn-small">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to <span class="gradient-text">4K Excellence</span></h1>
+                <p>Crystal clear design, lightning fast experience — built for your success.</p>
+                <div class="hero-buttons">
+                    <a href="signup.html" class="btn btn-primary">Get Started →</a>
+                    <a href="gallery.html" class="btn btn-outline">View Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why choose us</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h3>4K Optimized</h3>
+                        <p>Looks stunning on every screen size from mobile to ultra-wide 4K monitors.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h3>Blazing Fast</h3>
+                        <p>Optimized code that loads instantly. No bloat, no delays.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🔒</div>
+                        <h3>100% Secure</h3>
+                        <p>Your data is safe with industry standard security practices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📞</div>
+                        <h3>24/7 Support</h3>
+                        <p>We're always here to help you grow your business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to start your journey?</h2>
+                <p>Join thousands of satisfied customers today.</p>
+                <a href="signup.html" class="btn btn-primary">Sign Up Now →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BrandFlow</h4>
+                    <p>Creating stunning 4K websites since 2024.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 hello@brandflow.com</p>
+                    <p>📞 +92 328 4347698</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* User Dropdown Styles */
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .user-name {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            z-index: 1;
+            margin-top: 8px;
+        }
+        .dropdown-content a {
+            color: #1e293b !important;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background: #f1f5f9;
+            border-radius: 16px;
+        }
+        .user-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script>
+        const authNavItem = document.getElementById('authNavItem');
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Update navigation bar to show user name instead of signup button
+        function updateNavForLoggedInUser(firstName, lastName) {
+            const fullName = `${firstName} ${lastName}`;
+            authNavItem.innerHTML = `
+                <div class="user-dropdown">
+                    <div class="user-name">
+                        👤 ${fullName}
+                        ▼
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="profile.html">📋 My Profile</a>
+                        <a href="#" id="logoutLink">🚪 Logout</a>
+                    </div>
+                </div>
+            `;
+            
+            // Add logout functionality
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('loggedInUser');
+                    showToast('Logged out successfully!');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                });
+            }
+        }
+
+        // Check if user is already logged in
+        function checkLoginStatus() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                const user = JSON.parse(loggedInUser);
+                updateNavForLoggedInUser(user.firstName, user.lastName);
+            }
+        }
+
+        // Run on page load
+        checkLoginStatus();
+    </script>
+</body>
+</html>
